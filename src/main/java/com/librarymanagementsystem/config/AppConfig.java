@@ -10,23 +10,40 @@ import com.librarymanagementsystem.repository.impl.InMemoryLoanRepository;
 import com.librarymanagementsystem.service.LibraryService;
 import com.librarymanagementsystem.service.impl.LibraryServiceImpl;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ComponentScan("com.librarymanagementsystem")
 public class AppConfig {
-    @Bean
-    public BookRepository bookRepository(){
-        return new InMemoryBookRepository();
-    }
+    // Utilisation de @Repository,@Service ... etc
 
-    @Bean
-    public LoanRepository loanRepository(){
-        return new InMemoryLoanRepository();
-    }
+//    private final BookRepository bookRepository;
+//    private final LoanRepository loanRepository;
+//    private final LibraryService libraryService;
+//
+//    public AppConfig(BookRepository bookRepository, LoanRepository loanRepository,LibraryService libraryService) {
+//        this.bookRepository = bookRepository;
+//        this.loanRepository = loanRepository;
+//        this.libraryService = libraryService;
+//    }
 
-    @Bean
-    public LibraryService libraryService(BookRepository bookRepository,LoanRepository loanRepository){
-        return new LibraryServiceImpl(bookRepository,loanRepository);
-    }
+
+    //Utilisation de Bean
+    //    @Bean
+    //    public BookRepository bookRepository(){
+    //        return new InMemoryBookRepository();
+    //    }
+    //
+    //    @Bean
+    //    public LoanRepository loanRepository(){
+    //        return new InMemoryLoanRepository();
+    //    }
+
+//    @Bean
+//    public LibraryService libraryService(BookRepository bookRepository,LoanRepository loanRepository){
+//        return  libraryService(bookRepository,loanRepository);
+//    }
 
 }

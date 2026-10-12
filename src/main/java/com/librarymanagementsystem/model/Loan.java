@@ -17,6 +17,10 @@ public class Loan {
         this.returnDate = returnDate;
     }
 
+    public Loan() {
+
+    }
+
 
     public Long getId() {
         return id;

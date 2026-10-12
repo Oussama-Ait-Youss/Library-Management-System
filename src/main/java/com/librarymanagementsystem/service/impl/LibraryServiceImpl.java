@@ -7,10 +7,12 @@ import com.librarymanagementsystem.model.Member;
 import com.librarymanagementsystem.repository.BookRepository;
 import com.librarymanagementsystem.repository.LoanRepository;
 import com.librarymanagementsystem.service.LibraryService;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Service
 public class LibraryServiceImpl
         implements LibraryService {
 

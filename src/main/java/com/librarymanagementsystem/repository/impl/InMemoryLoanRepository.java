@@ -2,11 +2,16 @@ package com.librarymanagementsystem.repository.impl;
 
 import com.librarymanagementsystem.model.Loan;
 import com.librarymanagementsystem.repository.LoanRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+
+
+
+@Repository
 public class InMemoryLoanRepository implements LoanRepository {
 
     private final HashMap<Long,Loan> Loan_storage = new HashMap<>();

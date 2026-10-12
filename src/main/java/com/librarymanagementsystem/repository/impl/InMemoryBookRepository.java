@@ -2,6 +2,7 @@ package com.librarymanagementsystem.repository.impl;
 
 import com.librarymanagementsystem.model.Book;
 import com.librarymanagementsystem.repository.BookRepository;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -9,6 +10,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+
+
+@Repository
 public class InMemoryBookRepository implements BookRepository {
 
 

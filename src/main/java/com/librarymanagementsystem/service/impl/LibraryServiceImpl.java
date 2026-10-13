@@ -6,7 +6,9 @@ import com.librarymanagementsystem.model.Loan;
 import com.librarymanagementsystem.model.Member;
 import com.librarymanagementsystem.repository.BookRepository;
 import com.librarymanagementsystem.repository.LoanRepository;
+import com.librarymanagementsystem.service.NotificationService;
 import com.librarymanagementsystem.service.LibraryService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -16,16 +18,20 @@ import java.util.List;
 public class LibraryServiceImpl
         implements LibraryService {
 
+    //@Autowired
     private final BookRepository bookRepository;
     private final LoanRepository loanRepository;
+    private final NotificationService notificationService;
 
     public LibraryServiceImpl(
             BookRepository bookRepository,
-            LoanRepository loanRepository) {
+            LoanRepository loanRepository,NotificationService notificationService) {
 
         this.bookRepository = bookRepository;
         this.loanRepository = loanRepository;
+        this.notificationService = notificationService;
     }
+
 
     @Override
     public void addBook(Book book){
@@ -59,6 +65,7 @@ public class LibraryServiceImpl
 
         bookRepository.save(book);
         loanRepository.save(loan);
+        notificationService.SendNotification("Book Borrow succefully..." + book.getTitle());
     }
     @Override
     public void returnBook(Long loanId) {
